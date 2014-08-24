@@ -3,8 +3,13 @@
 makeCacheMatrix <- function(x = matrix()) {
     i <- NULL
     set <- function(y) {
-        x <<- y
-        i <<- NULL
+        if(identical(x,y)){
+            message("Matrices are the same as defined by identical(), not reset")
+        }
+        else {
+            x <<- y
+            i <<- NULL
+        }
     }
     get <- function() x
     setInverse <- function(inverse) i <<- inverse
